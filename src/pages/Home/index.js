@@ -9,7 +9,7 @@ import axios from "axios";
 import "./styles.css";
 
 export default function Home() {
-  const [posts, setPosts] = useState([]);
+  const [users, setUsers] = useState([]);
 
   useEffect(() => {
     axios
@@ -17,7 +17,7 @@ export default function Home() {
       .then((response) => {
         // console.log("Deu certo");
         // console.log(response.data);
-        setPosts(response.data);
+        setUsers(response.data);
       })
       .catch((error) => {
         console.error(error);
@@ -27,14 +27,20 @@ export default function Home() {
   return (
     <div className="containerHome">
       <TopBar />
+      {console.log(users)}
       <div className="containerCard">
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
+        {users.map((post, key) => {
+          return (
+            <div className="cards" key={key}>
+              <Card
+                name={users[key].name}
+                email={users[key].email}
+                phone={users[key].phone}
+                website={users[key].website}
+              />
+            </div>
+          );
+        })}
       </div>
     </div>
   );
