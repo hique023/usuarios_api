@@ -12,3 +12,10 @@
   gap: 15px;
   grid-template-columns: repeat(3, 1fr);
 }
+
+.loadingStyle {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

@@ -5,11 +5,14 @@ import Card from "../../components/Card";
 
 import axios from "axios";
 
+import Loading from "../../assets/loading.gif";
+
 // styles
 import "./styles.css";
 
 export default function Home() {
   const [users, setUsers] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     axios
@@ -18,11 +21,20 @@ export default function Home() {
         // console.log("Deu certo");
         // console.log(response.data);
         setUsers(response.data);
+        setLoading(false);
       })
       .catch((error) => {
         console.error(error);
       });
   }, []);
+
+  if (loading) {
+    return (
+      <div className="loadingStyle">
+        <img src={Loading} alt="Blocos girando sinalizando um carregamento" />
+      </div>
+    );
+  }
 
   return (
     <div className="containerHome">
