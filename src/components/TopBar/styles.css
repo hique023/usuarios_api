@@ -1,0 +1,13 @@
+.containerTopBar {
+  height: 110px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin-bottom: 30px;
+  border: 1px solid black;
+  border-radius: 10px;
+}
+
+.containerTopBar img {
+  height: 100px;
+}

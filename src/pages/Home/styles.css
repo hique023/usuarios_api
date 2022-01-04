@@ -1,0 +1,14 @@
+.containerHome {
+  width: 100vw;
+  height: 100vh;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  background-color: #f3f3f3;
+}
+
+.containerHome .containerCard {
+  display: grid;
+  gap: 15px;
+  grid-template-columns: repeat(3, 1fr);
+}
